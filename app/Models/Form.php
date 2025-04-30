@@ -15,6 +15,7 @@ class Form extends Model
     'program_applying_for',
     'select_shift',
     'are_you_iu_graduate',
+    'are_you_disabled',
     're_admission',
     'applying_for_program_transfer_migration',
     'user_profile_pic',
