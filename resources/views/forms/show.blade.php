@@ -13,19 +13,19 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong> <br/>
-                {{ $product->name }}
+                {{ $forms->name }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
             <div class="form-group">
                 <strong>Details:</strong> <br/>
-                {{ $product->detail }}
+                {{ $forms->detail }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Image:</strong><br/>
-                <img src="/images/{{ $product->image }}" width="500px">
+                <img src="/images/{{ $forms->image }}" width="500px">
             </div>
         </div>
     </div>

@@ -120,7 +120,7 @@ class FormController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Form $iqform): View
+    public function show(Form $forms): View
     {
         return view('forms.show', compact('forms'));
     }
@@ -128,7 +128,7 @@ class FormController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Form $iqform): View
+    public function edit(Form $forms): View
     {
         return view('forms.edit', compact('forms'));
     }
@@ -136,7 +136,7 @@ class FormController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Form $iqform)
+    public function update(Request $request, Form $forms)
     {
         $request->validate([
             'select_campus' => 'required',
@@ -206,9 +206,9 @@ class FormController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Form $iqform)
+    public function destroy(Form $forms)
     {
-        $iqform->delete();
+        $forms->delete();
 
         return redirect()->route('forms.index')
                         ->with('success','Forms Deleted Successfully...');

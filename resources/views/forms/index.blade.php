@@ -25,18 +25,18 @@
             </thead>
   
             <tbody>
-            @forelse ($forms as $product)
+            @forelse ($forms as $forms)
                 <tr>
                     <td>{{ ++$i }}</td>
-                    <td><img src="/images/{{ $product->image }}" width="100px"></td>
-                    <td>{{ $product->name }}</td>
-                    <td>{{ $product->detail }}</td>
+                    <td><img src="/images/{{ $forms->image }}" width="100px"></td>
+                    <td>{{ $forms->name }}</td>
+                    <td>{{ $forms->detail }}</td>
                     <td>
-                        <form action="{{ route('forms.destroy',$product->id) }}" method="POST">
+                        <form action="{{ route('forms.destroy',$forms->id) }}" method="POST">
              
-                            <a class="btn btn-info btn-sm" href="{{ route('forms.show',$product->id) }}"><i class="fa-solid fa-list"></i> Show</a>
+                            <a class="btn btn-info btn-sm" href="{{ route('forms.show',$forms->id) }}"><i class="fa-solid fa-list"></i> Show</a>
               
-                            <a class="btn btn-primary btn-sm" href="{{ route('forms.edit',$product->id) }}"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                            <a class="btn btn-primary btn-sm" href="{{ route('forms.edit',$forms->id) }}"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
              
                             @csrf
                             @method('DELETE')
