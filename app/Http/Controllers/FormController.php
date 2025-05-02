@@ -7,31 +7,22 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
 
 class FormController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(): View
     {
-        $iqform = Form::latest()->paginate(10);
-
-        return view('forms.index',compact('forms'))
-                    ->with('i', (request()->input('page', 1) -1) *5);
+        $iqforms = Form::paginate(5);
+        return view('forms.index', compact('iqforms'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(): View
     {
-        return view('forms.create');
+        $iqforms = Form::all();
+        return view('forms.create', compact('iqforms'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -55,7 +46,7 @@ class FormController extends Controller
             'religion' => 'required|string',
             'blood_group' => 'required|string',
             'last_institute_attended' => 'required|string',
-            'how_do_you_know_about_us' => 'requied|string',
+            'how_do_you_know_about_us' => 'required|string',
             'father_name' => 'required',
             'father_status' => 'required',
             'father_cnic' => 'required|numeric|digits:13|unique:forms,father_cnic',
@@ -72,7 +63,7 @@ class FormController extends Controller
             'sibiling_sister' => 'required|numeric',
             'email_address' => 'required|email|unique:forms,email_address',
             'phone_no' => 'required|numeric|unique:forms,phone_no',
-            'mobile_no' => 'require|numeric|unique:forms,mobile_no',
+            'mobile_no' => 'required|numeric|unique:forms,mobile_no',
             'current_country' => 'required|string',
             'current_city' => 'required|string',
             'current_address' => 'required|string',
@@ -100,9 +91,9 @@ class FormController extends Controller
 
         $input = $request->all();
 
-        if($request->hasFile('user_profile_pic')){
+        if ($request->hasFile('user_profile_pic')) {
             $image = $request->file('user_profile_pic');
-            $filePath = $file->store('uploads/profile_pics','public');
+            $filePath = $image->store('uploads/profile_pics', 'public');
             $input['user_profile_pic'] = $filePath;
         }
 
@@ -117,26 +108,18 @@ class FormController extends Controller
                         ->with('success','Form Created Successfully...');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Form $forms): View
+
+    public function show(Form $iqform): View
     {
-        return view('forms.show', compact('forms'));
+        return view('forms.show', compact('iqform'));
+    }
+    
+    public function edit(Form $iqform): View
+    {
+        return view('forms.edit', compact('iqform'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Form $forms): View
-    {
-        return view('forms.edit', compact('forms'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Form $forms)
+    public function update(Request $request, Form $iqform)
     {
         $request->validate([
             'select_campus' => 'required',
@@ -159,7 +142,7 @@ class FormController extends Controller
             'religion' => 'required|string',
             'blood_group' => 'required|string',
             'last_institute_attended' => 'required|string',
-            'how_do_you_know_about_us' => 'requied|string',
+            'how_do_you_know_about_us' => 'required|string',
             'father_name' => 'required',
             'father_status' => 'required',
             'father_cnic' => 'required|numeric|digits:13|unique:forms,father_cnic',
@@ -176,7 +159,7 @@ class FormController extends Controller
             'sibiling_sister' => 'required|numeric',
             'email_address' => 'required|email|unique:forms,email_address',
             'phone_no' => 'required|numeric|unique:forms,phone_no',
-            'mobile_no' => 'require|numeric|unique:forms,mobile_no',
+            'mobile_no' => 'required|numeric|unique:forms,mobile_no',
             'current_country' => 'required|string',
             'current_city' => 'required|string',
             'current_address' => 'required|string',
@@ -201,16 +184,37 @@ class FormController extends Controller
             'board_name' => 'required|string',
             'degree_document_file' => 'required|mimes:pdf,txt,,xlsx,pptp,zip,doc,docx,rar,csv|max:2048',
         ]);
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Form $forms)
-    {
-        $forms->delete();
+        $input = $request->all();
+
+        if ($request->hasFile('user_profile_pic')) {
+            $image = $request->file('user_profile_pic');
+            $filePath = $image->store('uploads/profile_pics', 'public');
+            $input['user_profile_pic'] = $filePath;
+        }
+
+        if ($request->hasFile('degree_document_file')) {
+            $file = $request->file('degree_document_file');
+            $filePath = $file->store('uploads/degree_documents', 'public');
+            $input['degree_document_file'] = $filePath;
+        }
+
+        $iqform->update($input);
 
         return redirect()->route('forms.index')
-                        ->with('success','Forms Deleted Successfully...');
+                        ->with('success', 'Form Updated Successfully...');
+    }
+
+    public function destroy(Form $iqform)
+    {
+        $iqform->delete();
+        if (Storage::exists($iqform->user_profile_pic)) {
+            Storage::delete($iqform->user_profile_pic);
+        }
+        if (Storage::exists($iqform->degree_document_file)) {
+            Storage::delete($iqform->degree_document_file);
+        }
+        return redirect()->route('forms.index')
+                        ->with('success','Form Deleted Successfully...');
     }
 }

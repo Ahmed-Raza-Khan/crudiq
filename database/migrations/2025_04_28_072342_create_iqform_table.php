@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Form', function (Blueprint $table) {
+        Schema::create('iqforms', function (Blueprint $table) {
             $table->id();
             $table->string('select_campus');
             $table->string('admission_applying_for');
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('nationality');
             $table->string('province');
             $table->string('domicile');
-            $table->integer('cnic')->unique();
+            $table->string('cnic', 15)->unique();
             $table->date('date_of_birth');
             $table->string('gender');
             $table->string('religion');
@@ -36,21 +36,21 @@ return new class extends Migration
             $table->string('how_do_you_know_about_us');
             $table->string('father_name');
             $table->string('father_status');
-            $table->integer('father_cnic')->unique();
+            $table->string('father_cnic', 15)->unique();
             $table->integer('father_cell')->unique();
             $table->string('father_education');
             $table->string('father_profession');
             $table->string('mother_name');
             $table->string('mother_status');
-            $table->integer('mother_cnic')->unique();
+            $table->string('mother_cnic', 15)->unique();
             $table->integer('mother_cell')->unique();
             $table->string('mother_education');
             $table->string('mother_profession');
-            $table->string('sibiling_brother')->default(0);
-            $table->string('sibiling_sister')->default(0);
+            $table->integer('sibiling_brother')->default(0);
+            $table->integer('sibiling_sister')->default(0);
             $table->string('email_address')->unique();
-            $table->integer('phone_no')->unique();
-            $table->integer('mobile_no')->unique();
+            $table->string('phone_no', 11)->unique();
+            $table->string('mobile_no', 11)->unique();
             $table->string('current_country');
             $table->string('current_city');
             $table->string('current_address');
@@ -69,9 +69,9 @@ return new class extends Migration
             $table->string('select_result_status');
             $table->integer('total_marks');
             $table->integer('obtained_marks');
-            $table->float('percentage', 5, 2);
+            $table->decimal('percentage', 5, 2);
             $table->string('institute');
-            $table->integer('board_roll_no',)->unique();
+            $table->string('board_roll_no', 7)->unique();
             $table->string('board_name');
             $table->string('degree_document_file');
             $table->timestamps();
@@ -83,6 +83,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Form');
+        Schema::dropIfExists('iqforms');
     }
 };

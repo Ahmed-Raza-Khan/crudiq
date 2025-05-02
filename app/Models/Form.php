@@ -9,6 +9,8 @@ class Form extends Model
 {
     use HasFactory;
 
+    protected $table = 'iqforms';
+
     protected $fillable = [
     'select_campus',
     'admission_applying_for',
@@ -36,7 +38,6 @@ class Form extends Model
     'father_cnic',
     'father_cell',
     'father_education',
-    'father_profession',
     'father_profession',
     'mother_name',
     'mother_status',

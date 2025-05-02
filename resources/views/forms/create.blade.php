@@ -32,10 +32,16 @@
         <div class="card-header">
             <h3>Admission Form</h3>
         </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a class="btn btn-primary btn-sm me-3 mt-3" href="{{ route('forms.index') }}"><i class="fa fa-arrow-left"></i> Back</a>
+        </div>
+
         <div class="card-body">
             <form action="{{ route('forms.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-<div style="border-radius: 10px; background-color: rgb(255, 255, 255); padding: 20px; color: black;" class="mb-4">
+
+    <div style="border-radius: 10px; background-color: rgb(255, 255, 255); padding: 20px; color: black;" class="mb-4">
                 <h3 class="mt-3 ms-4">Admission Information:</h3>
             <div class="row ms-3">
                 <div class="col-md-4 mb-3 ms-2">
@@ -84,21 +90,21 @@
                 
                 <div class="col-md-3 mb-3 ms-2">
                     <div class="form-check form-switch">
-                        <input type="checkbox" name="are_you_iu_graduate" class="form-check-input" id="are_you_iu_graduate" required>
+                        <input type="checkbox" value="{{ old('are_you_iu_graduate') }}" name="are_you_iu_graduate" class="form-check-input" id="are_you_iu_graduate" required>
                         <label for="are_you_iu_graduate" class="form-label">Are You IU Graduate?</label>
                     </div>
                 </div>
 
                 <div class="col-md-3 mb-1">
                     <div class="form-check form-switch">
-                        <input type="checkbox" name="are_you_disabled" class="form-check-input" id="are_you_disabled" required>
+                        <input type="checkbox" value="{{ old('are_you_disabled') }}" name="are_you_disabled" class="form-check-input" id="are_you_disabled" required>
                         <label for="are_you_disabled" class="form-label">Are You Disabled?</label>
                     </div>
                 </div>
 
                 <div class="col-md-2 mb-3">
                     <div class="form-check form-switch">
-                        <input type="checkbox" name="re_admission" class="form-check-input" id="re_admission" required>
+                        <input type="checkbox" value="{{ old('re_admission') }}" name="re_admission" class="form-check-input" id="re_admission" required>
                         <label for="re_admission" class="form-label">Re-Admission</label>
                     </div>
                 </div>
@@ -110,7 +116,7 @@
                 <h3>Program Transfer/Migration:</h3>
                     <div class="col-md-6 mb-3 ms-3  ">
                         <div class="form-check form-switch">
-                        <input type="checkbox" name="applying_for_program_transfer_migration" class="form-check-input" id="applying_for_program_transfer_migration" required>
+                        <input type="checkbox" value="{{ old('applying_for_program_transfer_migration') }}" name="applying_for_program_transfer_migration" class="form-check-input" id="applying_for_program_transfer_migration" required>
                         <label for="applying_for_program_transfer_migration" class="form-label">Applying for Program Transfer/Migration</label>
                         </div>    
                     </div>
@@ -122,22 +128,22 @@
                 <h3>Personal Information</h3>
                     <div class="col-md-4 mb-3">
                         <label for="user_profile_pic" class="form-label"><strong>User Profile Picture:</strong></label>
-                        <input type="file" id="user_profile_pic" name="user_profile_pic" accept="image/*" class="form-control" required>
+                        <input type="file" value="{{ old('user_profile_pic') }}" id="user_profile_pic" name="user_profile_pic" accept="image/*" class="form-control" required>
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="first_name" class="form-label">First Name:</label>
-                        <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Enter Your First Name" required>
+                        <input type="text" value="{{ old('first_name') }}" name="first_name" class="form-control" id="first_name" placeholder="Enter Your First Name" required>
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="last_name" class="form-label">Last Name:</label>
-                        <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Enter Your Last Name" required>
+                        <input type="text" value="{{ old('last_name') }}" name="last_name" class="form-control" id="last_name" placeholder="Enter Your Last Name" required>
                     </div>
 
                 <div class="col-md-3 mb-3">
                     <label for="nationality" class="form-label">Nationality:</label>
-                    <select name="nationality" class="form-select" id="nationality" required>
+                    <select name="nationality" value="{{ old('nationality') }}" class="form-select" id="nationality" required>
                         <option value="" disabled selected>Select Nationality</option>
                         <option value="Pakistani">Pakistani</option>
                         <option value="Indian">Indian</option>
@@ -173,12 +179,12 @@
 
                     <div class="col-md-3 mb-3">
                         <label for="cnic" class="form-label">CNIC:</label>
-                        <input type="text" name="cnic" class="form-control" id="cnic" maxlength="15" placeholder="Enter Your Cnic Here" required>
+                        <input type="text" value="{{ old('cnic') }}" name="cnic" class="form-control" id="cnic" maxlength="15" placeholder="Enter Your Cnic Here" required>
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="date_of_birth" class="form-label">Date of Birth:</label>
-                        <input type="date" name="date_of_birth" class="form-control" id="date_of_birth" required>
+                        <input type="date" value="{{ old('date_of_birth') }}" name="date_of_birth" class="form-control" id="date_of_birth" required>
                     </div>
 
                     <div class="col-md-3 mb-3 me-3">
@@ -221,12 +227,12 @@
 
                     <div class="col-md-5 mb-3 me-4">
                         <label for="last_institute_attended" class="form-label">Last Institute Attended:</label>
-                        <input type="text" name="last_institute_attended" class="form-control" id="last_institute_attended" maxlength="15" value="None" required>
+                        <input type="text" value="{{ old('last_institute_attended') }}" name="last_institute_attended" class="form-control" id="last_institute_attended" maxlength="15" value="None" required>
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <label for="how_do_you_know_about_us" class="form-label">How Do You Known About Us?</label>
-                        <select name="how_do_you_know_about_us" class="form-select" id="how_do_you_know_about_us" required> 
+                        <select name="how_do_you_know_about_us" value="{{ old('how_do_you_know_about_us') }}" class="form-select" id="how_do_you_know_about_us" required> 
                             <option value="Social Media">Social Media</option>
                             <option value="Website">Website</option>
                             <option value="Friend">Friend</option>
@@ -243,12 +249,12 @@
                     <h3>Family Details:</h3>
                     <div class="col-md-3 mb-3">
                         <label for="father_name" class="form-label">Father Name:</label>
-                        <input type="text" name="father_name" class="form-control" id="father_name" placeholder="Enter Your Father Name" required>
+                        <input type="text" value="{{ old('father_name') }}" name="father_name" class="form-control" id="father_name" placeholder="Enter Your Father Name" required>
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="father_status" class="form-label">Father Status:</label>
-                        <select name="father_status" class="form-select" id="father_status" required>
+                        <select name="father_status" value="{{ old('father_status') }}" class="form-select" id="father_status" required>
                             <option value="Select Father Status" disabled selected>Select Father Status</option>
                             <option value="Alive">Alive</option>
                             <option value="Deceased">Deceased</option>
@@ -256,12 +262,12 @@
                     </div>
 
                     <div class="col-md-3 me-3 mb-3">
-                        <label for="father_cnic" class="form-label">Father Cnic:</label>
+                        <label for="father_cnic" value="{{ old('father_cnic') }}" class="form-label">Father Cnic:</label>
                         <input type="text" name="father_cnic" class="form-control" id="father_cnic" maxlength="15" placeholder="Enter Father Cnic-no Here" required>
                     </div>
 
                     <div class="col-md-3 mb-3">
-                        <label for="father_cell" class="form-label">Father Cell No:</label>
+                        <label for="father_cell" value="{{ old('father_cell') }}" class="form-label">Father Cell No:</label>
                         <input type="text" name="father_cell" class="form-control" id="father_cell" maxlength="11" placeholder="Enter Father Cell-no Here" required>
                     </div>
 
@@ -293,7 +299,7 @@
 
                     <div class="col-md-3 mb-3">
                         <label for="mother_name" class="form-label">Mother Name:</label>
-                        <input type="text" name="mother_name" class="form-control" id="mother_name" placeholder="Enter Your Mother Name" required>
+                        <input type="text" value="{{ old('mother_name') }}" name="mother_name" class="form-control" id="mother_name" placeholder="Enter Your Mother Name" required>
                     </div>
 
                     <div class="col-md-3 mb-3">
@@ -307,12 +313,12 @@
 
                     <div class="col-md-3 mb-3 me-3">
                         <label for="mother_cnic" class="form-label">Mother Cnic:</label>
-                        <input type="text" name="mother_cnic" class="form-control" id="mother_cnic" maxlength="15" placeholder="Enter Mother Cnic-no Here" required>
+                        <input type="text" value="{{ old('mother_cnic') }}" name="mother_cnic" class="form-control" id="mother_cnic" maxlength="15" placeholder="Enter Mother Cnic-no Here" required>
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="mother_cell" class="form-label">Mother Cell No:</label>
-                        <input type="text" name="mother_cell" class="form-control" id="mother_cell" maxlength="11" placeholder="Enter Mother Cell-No " required>
+                        <input type="text" value="{{ old('mother_cell') }}" name="mother_cell" class="form-control" id="mother_cell" maxlength="11" placeholder="Enter Mother Cell-No " required>
                     </div>
 
                     <div class="col-md-4 mb-3">
@@ -346,12 +352,12 @@
                         <h3 class="me-4 mt-3">Sibilings:</h3>
                             <div class="col-md-3 mb-3 me-4">
                                 <label for="sibiling_brother" class="form-label mt-1">Number of Brothers:</label>
-                                <input type="number" name="sibiling_brother" class="form-control" id="sibiling_brother" placeholder="Enter Number of Brothers" min="0" required>
+                                <input type="number" value="{{ old('sibiling_brother') }}" name="sibiling_brother" class="form-control" id="sibiling_brother" placeholder="Enter Number of Brothers" min="0" required>
                             </div>
 
                             <div class="col-md-3 mb-3 me-4">
                                 <label for="sibiling_sister" class="form-label">Number of Sisters:</label>
-                                <input type="number" name="sibiling_sister" class="form-control" id="sibiling_sister" placeholder="Enter Number of Sisters" min="0" required>
+                                <input type="number" value="{{ old('sibiling_sister') }}" name="sibiling_sister" class="form-control" id="sibiling_sister" placeholder="Enter Number of Sisters" min="0" required>
                             </div>
                     </div>
 </div>
@@ -362,17 +368,17 @@
                     <h3>Contact Information</h3>
                     <div class="col-md-3 mb-3">
                         <label for="email_address" class="form-label">Email Address:</label>
-                        <input type="email" name="email_address" class="form-control" id="email_address" placeholder="Enter Your Email Address" required>   
+                        <input type="email" value="{{ old('email_address') }}" name="email_address" class="form-control" id="email_address" placeholder="Enter Your Email Address" required>   
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="phone_no" class="form-label">Phone No:</label>
-                        <input type="text" name="phone_no" class="form-control" id="phone_no" maxlength="11" placeholder="Enter Your Phone-no " required>
+                        <input type="text" value="{{ old('phone_no') }}" name="phone_no" class="form-control" id="phone_no" maxlength="11" placeholder="Enter Your Phone-no " required>
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="mobile_no" class="form-label">Mobile No:</label>
-                        <input type="text" name="mobile_no" class="form-control" id="mobile_no" maxlength="11" placeholder="Enter Your Mobile-no " required>
+                        <input type="text" value="{{ old('mobile_no') }}" name="mobile_no" class="form-control" id="mobile_no" maxlength="11" placeholder="Enter Your Mobile-no " required>
                     </div>
 
                     <h3>Current Address</h3>
@@ -418,29 +424,29 @@
 
                         <div class="col-md-6 mb-3">
                             <label for="current_address" class="form-label">Current Address:</label>
-                            <input type="text" name="current_address" class="form-control" id="current_address" placeholder="Enter Your Current Address" required>
+                            <input type="text" value="{{ old('current_address') }}" name="current_address" class="form-control" id="current_address" placeholder="Enter Your Current Address" required>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="current_area" class="form-label">Current Area:</label>
-                            <input type="text" name="current_area" class="form-control" id="current_area" placeholder="Enter Your Current Area" required>
+                            <input type="text" value="{{ old('current_area') }}" name="current_area" class="form-control" id="current_area" placeholder="Enter Your Current Area" required>
                         </div>
 
                         <div class="col-md-2 mb-3">
                             <label for="current_zip" class="form-label">Zip:</label>
-                            <input type="text" name="current_zip" class="form-control" id="current_zip" maxlength="5" placeholder="Enter Your Zip Code" required>
+                            <input type="text" value="{{ old('current_zip') }}" name="current_zip" class="form-control" id="current_zip" maxlength="5" placeholder="Enter Your Zip Code" required>
                         </div>
 
                         <div class="col-md-3 mb-3">
                             <div class="form-check form-switch">
-                                <input type="checkbox" name="is_ame_address" class="form-check-input" id="is_ame_address" required>
+                                <input type="checkbox" value="{{ old('is_ame_address') }}" name="is_ame_address" class="form-check-input" id="is_ame_address" required>
                                 <label for="is_ame_address" class="form-label">Is Same Address</label>
                             </div>
                         </div>
 
                     <h3>Permanent Address</h3>
                         <div class="col-md-4 mb-3">
-                            <label for="permeneant_country" class="form-label">Permanent Country</label>
+                            <label for="permeneant_country" class="form-label">Permanent Country:</label>
                             <select name="permeneant_country" class="form-select" id="permeneant_country" required>
                                 <option value="" disabled selected>Select Your Permanent Country</option>
                                 <option value="Pakistan">Pakistan</option>
@@ -460,7 +466,7 @@
                         </div>
 
                         <div class="col-md-4 mb-3">
-                            <label for="permeneant_city" class="form-label">Permeneant City</label>
+                            <label for="permeneant_city" class="form-label">Permeneant City:</label>
                             <select name="permeneant_city" class="form-select" id="permeneant_city" required>
                                 <option value="" disabled selected>Select Your Permeneant City</option>
                                 <option value="Karachi">Karachi</option>
@@ -480,27 +486,27 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label for="permeneant_address" class="form-label">Permeneant Address</label>
-                            <input type="text" name="permeneant_address" class="form-control" id="permeneant_address" placeholder="Enter Your Permeneant Address" required>
+                            <label for="permeneant_address" class="form-label">Permeneant Address:</label>
+                            <input type="text" value="{{ old('permeneant_address') }}" name="permeneant_address" class="form-control" id="permeneant_address" placeholder="Enter Your Permeneant Address" required>
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label for="permeneant_area" class="form-label">Permeneant Area</label>
-                            <input type="text" name="permeneant_area" class="form-control" id="permeneant_area" placeholder="Enter Your Permeneant Area" required>
+                            <label for="permeneant_area" class="form-label">Permeneant Area:</label>
+                            <input type="text" value="{{ old('permeneant_area') }}" name="permeneant_area" class="form-control" id="permeneant_area" placeholder="Enter Your Permeneant Area" required>
                         </div>
 
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label for="permeneant_zip" class="form-label">Zip</label>
-                            <input type="text" name="permeneant_zip" class="form-control" id="permeneant_zip" maxlength="5" placeholder="Enter Your Zip-Code" required>
+                            <input type="text" value="{{ old('permeneant_zip') }}" name="permeneant_zip" class="form-control" id="permeneant_zip" maxlength="5" placeholder="Enter Your Zip-Code" required>
                         </div>
 </div>
 </div>
 
-<div style="border-radius: 10px; background-color: rgb(255, 255, 255); padding: 20px; color: black;" class="mb-4">
-<div class="row ms-2">
+                                    <div style="border-radius: 10px; background-color: rgb(255, 255, 255); padding: 20px; color: black;" class="mb-4">
+                                    <div class="row ms-2">
                     <h3>Academic Information</h3>
                         <div class="col-md-4 mb-3">
-                            <label for="degree_level" class="form-label">Degree Level</label>
+                            <label for="degree_level" class="form-label">Degree Level:</label>
                             <select name="degree_level" class="form-select" id="degree_level" required>
                                 <option value="" disabled selected>Select Degree Level</option>
                                 <option value="Secondary School Certificate">Secondary School Certificate</option>
@@ -512,7 +518,7 @@
                         </div>
 
                         <div class="col-md-3 mb-3">
-                            <label for="degree" class="form-label">Degree</label>
+                            <label for="degree" class="form-label">Degree:</label>
                             <select name="degree" class="form-select" id="degree" required>
                                 <option value="" disabled selected>Select Degree</option>
                                 <option value="MS/M.Phil">MS/M.Phil</option>
@@ -523,7 +529,7 @@
                         </div>
 
                         <div class="col-md-5 mb-3">
-                            <label for="specializations" class="form-label">Specializations</label>
+                            <label for="specializations" class="form-label">Specializations:</label>
                             <select name="specializations" class="form-select" id="specializations" required>
                                 <option value="" disabled selected>Select Specializations</option>
                                 <option value="Computing Sciences">Computing Sciences</option>
@@ -538,7 +544,7 @@
                         </div>
 
                         <div class="col-md-3 mb-3">
-                            <label for="select_passing_year" class="form-label">Passing Year</label>
+                            <label for="select_passing_year" class="form-label">Passing Year:</label>
                             <select name="select_passing_year" class="form-select" id="select_passing_year" required>
                                 <option value="" disabled selected>Select Passing Year</option>
                                 <option value="2025">2025</option>
@@ -553,7 +559,7 @@
                         </div>
 
                         <div class="col-md-3 mb-3">
-                            <label for="select_result_status" class="form-label">Result Status</label>
+                            <label for="select_result_status" class="form-label">Result Status:</label>
                             <select name="select_result_status" class="form-select" id="select_result_status" required>
                                 <option value="" disabled selected>Select Result Status</option>
                                 <option value="Waiting">Waiting</option>
@@ -563,27 +569,27 @@
 
                         <div class="col-md-2 mb-3">
                             <label for="total_marks" class="form-label">Total Marks</label>
-                            <input type="number" name="total_marks" class="form-control" id="total_marks" min="0" max="400" required>
+                            <input type="number" value="{{ old('total_marks') }}" name="total_marks" class="form-control" id="total_marks" min="0" max="400" required>
                         </div>
 
                         <div class="col-md-2 mb-3">
                             <label for="obtained_marks" class="form-label">Obtained Marks</label>
-                            <input type="number" name="obtained_marks" class="form-control" id="obtained_marks" min="0" max="400" required>
+                            <input type="number" value="{{ old('obtained_marks') }}" name="obtained_marks" class="form-control" id="obtained_marks" min="0" max="400" required>
                         </div>
 
                     <div class="col-md-2 mb-3">
                         <label for="percentage" class="form-label">Percentage</label>
-                        <input type="number" name="percentage" class="form-control" id="percentage" step="0.01" max="100" required>
+                        <input type="number" value="{{ old('percentage') }}" name="percentage" class="form-control" id="percentage" step="0.01" max="100" required>
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="institute" class="form-label">Institute</label>
-                        <input type="text" name="institute" class="form-control" id="institute" placeholder="Enter Your Institute Name" required>
+                        <input type="text" value="{{ old('institute') }}" name="institute" class="form-control" id="institute" placeholder="Enter Your Institute Name" required>
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <label for="board_roll_no" class="form-label">Board Roll No</label>
-                        <input type="text" name="board_roll_no" class="form-control" id="board_roll_no" maxlength="7" placeholder="Enter Your Board Roll-No" required>
+                        <input type="text" value="{{ old('board_roll_no') }}" name="board_roll_no" class="form-control" id="board_roll_no" maxlength="7" placeholder="Enter Your Board Roll-No" required>
                     </div>
 
                     <div class="col-md-6 mb-3">
@@ -602,10 +608,10 @@
 
                         <div class="col-md-5 mb-3">
                             <label for="degree_document_file" class="form-label">Degree Document</label>
-                            <input type="file" name="degree_document_file" class="form-control" id="degree_document_file" accept=".pdf,.doc,.docx,.xlsx,.zip,.rar" required>
+                            <input type="file" value="{{ old('degree_document_file') }}" name="degree_document_file" class="form-control" id="degree_document_file" accept=".pdf,.doc,.docx,.xlsx,.zip,.rar" required>
                         </div>
 
-                        <div class="d-grid gap-2">
+                        <div class="d-grid gap-2 mt-4">
                             <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
                         </div>
                 </div>

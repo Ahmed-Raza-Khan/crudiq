@@ -24,7 +24,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Image:</strong><br/>
+                <strong>Image hi:</strong><br/>
                 <img src="/images/{{ $forms->image }}" width="500px">
             </div>
         </div>
