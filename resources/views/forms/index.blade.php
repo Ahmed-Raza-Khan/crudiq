@@ -5,12 +5,9 @@
   <h2 class="card-header text-center">Laravel 11 CRUD with Image Upload</h2>
   <div class="card-body">
   
-    @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+        @session('success')
+            <div class="alert alert-success" role="alert"> {{ $value }} </div>
+        @endsession
   
     <div class="d-flex justify-content-end mb-3">
         <a class="btn btn-success btn-sm" href="{{ route('forms.create') }}">
@@ -23,7 +20,7 @@
             <thead class="table-dark text-center">
                 <tr>
                     <th style="width: 50px;">Campus</th>
-                    <th style="width: 150px;">>Admission Applying For</th>
+                    <th style="width: 150px;">Admission Applying For</th>
                     <th style="width: 300px;">Program Applying For</th>
                     <th style="width: 300px;">Shift</th>
                     <th style="width: 200px;">Are You IU Graduate</th>
@@ -88,7 +85,8 @@
 
     <tbody>
     @forelse ($iqforms as $iqform)
-        <tr>    
+        <tr>
+            <td>{{ ++$i }}</td>
             <td>{{ $iqform->select_campus }}</td>
             <td>{{ $iqform->admission_applying_for }}</td>
             <td>{{ $iqform->program_applying_for }}</td>

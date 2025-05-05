@@ -41,7 +41,7 @@
             <form action="{{ route('forms.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
-    <div style="border-radius: 10px; background-color: rgb(255, 255, 255); padding: 20px; color: black;" class="mb-4">
+    <div style="border-radius: 10px; background-color: rgb(63 63 63); padding: 20px; color: #ffffff;" class="mb-4">
                 <h3 class="mt-3 ms-4">Admission Information:</h3>
             <div class="row ms-3">
                 <div class="col-md-4 mb-3 ms-2">
@@ -123,7 +123,7 @@
             </div>
 </div>
 
-<div style="border-radius: 10px; background-color: rgb(255, 255, 255); padding: 20px; color: black;" class="mb-4">
+<div style="border-radius: 10px; background-color: rgb(63 63 63); padding: 20px; color: #ffffff;" class="mb-4">
 <div class="row ms-2">
                 <h3>Personal Information</h3>
                     <div class="col-md-4 mb-3">
@@ -199,7 +199,7 @@
                     <div class="col-md-3 mb-3">
                         <label for="religion" class="form-label">Religion:</label>
                         <select name="religion" class="form-select" id="religion" required>
-                            <optio disabled selected>Select Religion</option>
+                            <option disabled selected>Select Religion</option>
                             <option value="A+ve">Islam</option>
                             <option value="B+ve">Christianity</option>
                             <option value="O+ve">Juddism</option>
@@ -212,7 +212,7 @@
                     <div class="col-md-3 mb-3">
                         <label for="blood_group" class="form-label">Blood Group:</label>
                         <select name="blood_group" class="form-select" id="blood_group" required>
-                            <optio disabled selected>Select Blood Group</option>
+                            <option disabled selected>Select Blood Group</option>
                             <option value="A+ve">A+ve</option>
                             <option value="B+ve">B+ve</option>
                             <option value="O+ve">O+ve</option>
@@ -238,13 +238,13 @@
                             <option value="Friend">Friend</option>
                             <option value="Relative">Relative</option>
                             <option value="Newspaper">Newspaper</option>
-                            <option value="Reference" selected>Reference</option>
+                            <option value="Reference">Reference</option>
                         </select>
                     </div>
 </div>
 </div>
 
-<div style="border-radius: 10px; background-color: rgb(255, 255, 255); padding: 20px; color: black;" class="mb-4">
+<div style="border-radius: 10px; background-color: rgb(63 63 63); padding: 20px; color: #ffffff;" class="mb-4">
 <div class="row ms-2">
                     <h3>Family Details:</h3>
                     <div class="col-md-3 mb-3">
@@ -363,7 +363,7 @@
 </div>
 </div>
 
-<div style="border-radius: 10px; background-color: rgb(255, 255, 255); padding: 20px; color: black;" class="mb-4">
+<div style="border-radius: 10px; background-color: rgb(63 63 63); padding: 20px; color: #ffffff;" class="mb-4">
 <div class="row ms-2">
                     <h3>Contact Information</h3>
                     <div class="col-md-3 mb-3">
@@ -432,7 +432,7 @@
                             <input type="text" value="{{ old('current_area') }}" name="current_area" class="form-control" id="current_area" placeholder="Enter Your Current Area" required>
                         </div>
 
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label for="current_zip" class="form-label">Zip:</label>
                             <input type="text" value="{{ old('current_zip') }}" name="current_zip" class="form-control" id="current_zip" maxlength="5" placeholder="Enter Your Zip Code" required>
                         </div>
@@ -502,8 +502,8 @@
 </div>
 </div>
 
-                                    <div style="border-radius: 10px; background-color: rgb(255, 255, 255); padding: 20px; color: black;" class="mb-4">
-                                    <div class="row ms-2">
+<div style="border-radius: 10px; background-color: rgb(63 63 63); padding: 20px; color: #ffffff;" class="mb-4">
+<div class="row ms-2">
                     <h3>Academic Information</h3>
                         <div class="col-md-4 mb-3">
                             <label for="degree_level" class="form-label">Degree Level:</label>
@@ -612,7 +612,7 @@
                         </div>
 
                         <div class="d-grid gap-2 mt-4">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
                         </div>
                 </div>
 

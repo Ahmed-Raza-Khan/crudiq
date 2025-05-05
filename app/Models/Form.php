@@ -72,6 +72,6 @@ class Form extends Model
     'institute',
     'board_roll_no',
     'board_name',
-    'degree_document_file'
+    'degree_document_file',
     ];	
 }
