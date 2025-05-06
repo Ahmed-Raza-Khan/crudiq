@@ -46,65 +46,65 @@
             <div class="row ms-3">
                 <div class="col-md-4 mb-3 ms-2">
                     <label for="select_campus" class="form-label">Campus:</label>
-                    <select name="select_campus" class="form-select" id="select_campus" required>
+                    <select name="select_campus" value="{{ old('select_campus') }}" class="form-select" id="select_campus" required>
                         <option value="" disabled selected>Select a campus</option>
-                        <option value="Main Campus">Airport Campus</option>
-                        <option value="City Campus">Malir Campus</option>
-                        <option value="North Campus">Shah-Faisal Campus</option>
-                        <option value="South Campus">Karsaz Campus</option>
-                        <option value="N.I.P.A Campus">N.I.P.A Campus</option>
+                        <option value="Main_Campus" {{ old('select_campus') == 'Main_Campus' ? 'selected' : '' }}>Airport Campus</option>
+                        <option value="City_Campus" {{ old('select_campus') == 'City_Campus' ? 'selected' : '' }}>Malir Campus</option>
+                        <option value="North_Campus" {{ old('select_campus') == 'North_Campus' ? 'selected' : '' }}>Shah-Faisal Campus</option>
+                        <option value="South_Campus" {{ old('select_campus') == 'South_Campus' ? 'selected' : '' }}>Karsaz Campus</option>
+                        <option value="N.I.P.A_Campus" {{ old('select_campus') == 'N.I.P.A_Campus' ? 'selected' : '' }}>N.I.P.A Campus</option>
                     </select>
                 </div>
 
                 <div class="col-md-5 mb-3">
                     <label for="admission_applying_for" class="form-label">Admission Applying For:</label>
-                    <select name="admission_applying_for" class="form-select" id="admission_applying_for" required>
+                    <select name="admission_applying_for" value="{{ old('admission_applying_for') }}" class="form-select" id="admission_applying_for" required>
                         <option value="" disabled selected>Select a Admission Applying For</option>
-                        <option>UG - Under Graduate Programs</option>
-                        <option>AD - Associate Degree Programs</option>
-                        <option>PG - Post Graduate Programs</option>
-                        <option>UG - Under Graduate Programs (2.5 years)</option>
+                        <option {{ old('admission_applying_for') == 'UG - Under Graduate Programs' ? 'selected' : '' }}>UG - Under Graduate Programs</option>
+                        <option {{ old('admission_applying_for') == 'AD - Associate Degree Programs' ? 'selected' : '' }}>AD - Associate Degree Programs</option>
+                        <option {{ old('admission_applying_for') == 'PG - Post Graduate Programs' ? 'selected' : '' }}>PG - Post Graduate Programs</option>
+                        <option {{ old('admission_applying_for') == 'UG - Under Graduate Programs (2.5 years)' ? 'selected' : '' }}>UG - Under Graduate Programs (2.5 years)</option>
                     </select>
                 </div>
 
                 <div class="col-md-7 mb-3 ms-2">
                     <label for="program_applying_for" class="form-label">Program Applying For:</label>
-                    <select name="program_applying_for" class="form-select" id="program_applying_for" required>
+                    <select name="program_applying_for" value="{{ old('program_applying_for') }}" class="form-select" id="program_applying_for" required>
                         <option disabled selected>Select a Program Applying For</option>
-                        <option>BACHELOR OF SCIENCE IN ACCOUNTING & FINANCE (2.5 Y)</option>
-                        <option>BACHELOR OF BUSINESS ADMINISTRATION (2.5 Y)</option>
-                        <option>BACHELOR OF SCIENCE IN DIGITAL MARKETING (2.5Y)</option>
+                        <option {{ old('program_applying_for') == 'BACHELOR OF SCIENCE IN ACCOUNTING & FINANCE (2.5 Y)' ? 'selected' : '' }}>BACHELOR OF SCIENCE IN ACCOUNTING & FINANCE (2.5 Y)</option>
+                        <option {{ old('program_applying_for') == 'BACHELOR OF BUSINESS ADMINISTRATION (2.5 Y)' ? 'selected' : '' }}>BACHELOR OF BUSINESS ADMINISTRATION (2.5 Y)</option>
+                        <option {{ old('program_applying_for') == 'BACHELOR OF SCIENCE IN DIGITAL MARKETING (2.5Y)' ? 'selected' : '' }}>BACHELOR OF SCIENCE IN DIGITAL MARKETING (2.5Y)</option>
                     </select>
                 </div>
 
                 <div class="col-md-3 mb-3">
                     <label for="select_shift" class="form-label">Shift:</label>
-                    <select name="select_shift" class="form-select" id="select_shift" required>
+                    <select name="select_shift" value="{{ old('select_shift') }}" class="form-select" id="select_shift" required>
                         <option disabled selected>Select Shift</option>
-                        <option>Morning</option>
-                        <option>Evening</option>
-                        <option>Night</option>
+                        <option {{ old('select_shift') == 'Morning' ? 'selected' : '' }}>Morning</option>
+                        <option {{ old('select_shift') == 'Evening' ? 'selected' : '' }}>Evening</option>
+                        <option {{ old('select_shift') == 'Night' ? 'selected' : '' }}>Night</option>
                     </select>
                 </div>
 
                 
                 <div class="col-md-3 mb-3 ms-2">
                     <div class="form-check form-switch">
-                        <input type="checkbox" value="{{ old('are_you_iu_graduate') }}" name="are_you_iu_graduate" class="form-check-input" id="are_you_iu_graduate" required>
+                        <input type="checkbox" name="are_you_iu_graduate" class="form-check-input" id="are_you_iu_graduate" required>
                         <label for="are_you_iu_graduate" class="form-label">Are You IU Graduate?</label>
                     </div>
                 </div>
 
                 <div class="col-md-3 mb-1">
                     <div class="form-check form-switch">
-                        <input type="checkbox" value="{{ old('are_you_disabled') }}" name="are_you_disabled" class="form-check-input" id="are_you_disabled" required>
+                        <input type="checkbox" name="are_you_disabled" class="form-check-input" id="are_you_disabled" required>
                         <label for="are_you_disabled" class="form-label">Are You Disabled?</label>
                     </div>
                 </div>
 
                 <div class="col-md-2 mb-3">
                     <div class="form-check form-switch">
-                        <input type="checkbox" value="{{ old('re_admission') }}" name="re_admission" class="form-check-input" id="re_admission" required>
+                        <input type="checkbox" name="re_admission" class="form-check-input" id="re_admission" required>
                         <label for="re_admission" class="form-label">Re-Admission</label>
                     </div>
                 </div>
@@ -116,7 +116,7 @@
                 <h3>Program Transfer/Migration:</h3>
                     <div class="col-md-6 mb-3 ms-3  ">
                         <div class="form-check form-switch">
-                        <input type="checkbox" value="{{ old('applying_for_program_transfer_migration') }}" name="applying_for_program_transfer_migration" class="form-check-input" id="applying_for_program_transfer_migration" required>
+                        <input type="checkbox" name="applying_for_program_transfer_migration" class="form-check-input" id="applying_for_program_transfer_migration" required>
                         <label for="applying_for_program_transfer_migration" class="form-label">Applying for Program Transfer/Migration</label>
                         </div>    
                     </div>
@@ -128,7 +128,7 @@
                 <h3>Personal Information</h3>
                     <div class="col-md-4 mb-3">
                         <label for="user_profile_pic" class="form-label"><strong>User Profile Picture:</strong></label>
-                        <input type="file" value="{{ old('user_profile_pic') }}" id="user_profile_pic" name="user_profile_pic" accept="image/*" class="form-control" required>
+                        <input type="file" id="user_profile_pic" name="user_profile_pic" accept="image/*" class="form-control" required>
                     </div>
 
                     <div class="col-md-3 mb-3">
@@ -145,35 +145,35 @@
                     <label for="nationality" class="form-label">Nationality:</label>
                     <select name="nationality" value="{{ old('nationality') }}" class="form-select" id="nationality" required>
                         <option value="" disabled selected>Select Nationality</option>
-                        <option value="Pakistani">Pakistani</option>
-                        <option value="Indian">Indian</option>
-                        <option value="Afghani">Afghani</option>
-                        <option value="Irani">Irani</option>
-                        <option value="Sudani">Sudani</option>
+                        <option value="Pakistani" {{ old('nationality') == 'Pakistani' ? 'selected' : '' }}>Pakistani</option>
+                        <option value="Indian" {{ old('nationality') == 'Indian' ? 'selected' : '' }}>Indian</option>
+                        <option value="Afghani" {{ old('nationality') == 'Afghani' ? 'selected' : '' }}>Afghani</option>
+                        <option value="Irani" {{ old('nationality') == 'Irani' ? 'selected' : '' }}>Irani</option>
+                        <option value="Sudani" {{ old('nationality') == 'Sudani' ? 'selected' : '' }}>Sudani</option>
                     </select>
                 </div>
 
                 <div class="col-md-4 mb-3">
                     <label for="province" class="form-label">Province:</label>
-                    <select name="province" class="form-select" id="province" required>
+                    <select name="province" value="{{ old('province') }}" class="form-select" id="province" required>
                         <option value="" disabled selected>Select Province</option>
-                        <option value="Pakistani">Sindh</option>
-                        <option value="Indian">Punjab</option>
-                        <option value="Afghani">Balochistan</option>
-                        <option value="Irani">K.P.K</option>
-                        <option value="Sudani">Jammmu & Azad Kahmir</option>
+                        <option value="Sindh" {{ old('nationality') == 'Sindh' ? 'selected' : '' }}>Sindh</option>
+                        <option value="Punjab" {{ old('nationality') == 'Punjab' ? 'selected' : '' }}>Punjab</option>
+                        <option value="Balochistan" {{ old('nationality') == 'Balochistan' ? 'selected' : '' }}>Balochistan</option>
+                        <option value="K.P.K" {{ old('nationality') == 'K.P.K' ? 'selected' : '' }}>K.P.K</option>
+                        <option value="Jammmu & Azad Kahmir" {{ old('nationality') == 'Jammmu & Azad Kahmir' ? 'selected' : '' }}>Jammmu & Azad Kahmir</option>
                     </select>
                 </div>
 
                 <div class="col-md-3 mb-3 me-4">
                     <label for="domicile" class="form-label">Domicile:</label>
-                    <select name="domicile" class="form-select" id="domicile" required>
+                    <select name="domicile" value="{{ old('domicile') }}" class="form-select" id="domicile" required>
                         <option value="" disabled selected>Select Domicile</option>
-                        <option value="Korangi Domicile">Korangi Domicile</option>
-                        <option value="Malir Halt Domicile">Malir Halt Domicile</option>
-                        <option value="N.I.P.A Domicile">N.I.P.A Domicile</option>
-                        <option value="North Domicile">North Domicile</option>
-                        <option value="Central Domicile">Central Domicile</option>
+                        <option value="Korangi Domicile" {{ old('domicile') == 'Korangi Domicile' ? 'selected' : '' }}>Korangi Domicile</option>
+                        <option value="Malir Halt Domicile" {{ old('domicile') == 'Malir Halt Domicile' ? 'selected' : '' }}>Malir Halt Domicile</option>
+                        <option value="N.I.P.A Domicile" {{ old('domicile') == 'N.I.P.A Domicile' ? 'selected' : '' }}>N.I.P.A Domicile</option>
+                        <option value="North Domicile" {{ old('domicile') == 'North Domicile' ? 'selected' : '' }}>North Domicile</option>
+                        <option value="Central Domicile" {{ old('domicile') == 'Central Domicile' ? 'selected' : '' }}>Central Domicile</option>
                     </select>
                 </div>
 
@@ -189,23 +189,23 @@
 
                     <div class="col-md-3 mb-3 me-3">
                         <label for="gender" class="form-label">Gender:</label>
-                        <select name="gender" class="form-select" id="gender" required>
+                        <select name="gender" value="{{ old('gender') }}" class="form-select" id="gender" required>
                             <option value="" disabled selected>Select Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                            <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
+                            <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
                         </select>
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="religion" class="form-label">Religion:</label>
-                        <select name="religion" class="form-select" id="religion" required>
+                        <select name="religion" value="{{ old('religion') }}" class="form-select" id="religion" required>
                             <option disabled selected>Select Religion</option>
-                            <option value="A+ve">Islam</option>
-                            <option value="B+ve">Christianity</option>
-                            <option value="O+ve">Juddism</option>
-                            <option value="AB+ve">Hindhuism</option>
-                            <option value="A-ve">Sikhism</option>
-                            <option value="B-ve">Any Other Religion</option>
+                            <option value="Islam" {{ old('religion') == 'Islam' ? 'selected' : '' }}>Islam</option>
+                            <option value="Christianity" {{ old('religion') == 'Christianity' ? 'selected' : '' }}>Christianity</option>
+                            <option value="Juddism" {{ old('religion') == 'Juddism' ? 'selected' : '' }}>Juddism</option>
+                            <option value="Hindhuism" {{ old('religion') == 'Hindhuism' ? 'selected' : '' }}>Hindhuism</option>
+                            <option value="Sikhism" {{ old('religion') == 'Sikhism' ? 'selected' : '' }}>Sikhism</option>
+                            <option value="Any Other Religion" {{ old('religion') == 'Any Other Religion' ? 'selected' : '' }}>Any Other Religion</option>
                         </select>
                     </div>
 
@@ -213,8 +213,8 @@
                         <label for="blood_group" class="form-label">Blood Group:</label>
                         <select name="blood_group" class="form-select" id="blood_group" required>
                             <option disabled selected>Select Blood Group</option>
-                            <option value="A+ve">A+ve</option>
-                            <option value="B+ve">B+ve</option>
+                            <option value="A+ve" {{ old('blood_group') == '' ? 'selected' : '' }}>A+ve</option>
+                            <option value="B+ve" {{ old('blood_group') == '' ? 'selected' : '' }}>B+ve</option>
                             <option value="O+ve">O+ve</option>
                             <option value="AB+ve">AB+ve</option>
                             <option value="A-ve">A-ve</option>
@@ -224,6 +224,8 @@
                             <option value="Not Known">Not Known</option>
                         </select>
                     </div>
+
+                    {{ old('') == '' ? 'selected' : '' }}
 
                     <div class="col-md-5 mb-3 me-4">
                         <label for="last_institute_attended" class="form-label">Last Institute Attended:</label>
@@ -439,8 +441,8 @@
 
                         <div class="col-md-3 mb-3">
                             <div class="form-check form-switch">
-                                <input type="checkbox" value="{{ old('is_ame_address') }}" name="is_ame_address" class="form-check-input" id="is_ame_address" required>
-                                <label for="is_ame_address" class="form-label">Is Same Address</label>
+                                <input type="checkbox" value="{{ old('is_same_address') }}" name="is_same_address" class="form-check-input" id="is_same_address" required>
+                                <label for="is_same_address" class="form-label">Is Same Address</label>
                             </div>
                         </div>
 

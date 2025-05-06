@@ -5,9 +5,12 @@
   <h2 class="card-header text-center">Laravel 11 CRUD with Image Upload</h2>
   <div class="card-body">
   
-        @session('success')
-            <div class="alert alert-success" role="alert"> {{ $value }} </div>
-        @endsession
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
   
     <div class="d-flex justify-content-end mb-3">
         <a class="btn btn-success btn-sm" href="{{ route('forms.create') }}">
@@ -16,12 +19,13 @@
     </div>
   
     <div class="table-responsive">
-        <table class="table table-bordered table-hover table-striped">
+        <table class="table table-bordered table-hover table-striped w-100">
             <thead class="table-dark text-center">
                 <tr>
+                    <th style="width: 50px;">St.No</th>
                     <th style="width: 50px;">Campus</th>
                     <th style="width: 150px;">Admission Applying For</th>
-                    <th style="width: 300px;">Program Applying For</th>
+                    <th style="width: 500px;">Program Applying For</th>
                     <th style="width: 300px;">Shift</th>
                     <th style="width: 200px;">Are You IU Graduate</th>
                     <th style="width: 120px;">Are You Disabled</th>
@@ -78,15 +82,19 @@
                     <th style="width: 250px;">Percentage</th>
                     <th style="width: 250px;">Institute</th>
                     <th style="width: 250px;">Board Roll No</th>
-                    <th style="width: 250px;">Board</th>
-                    <th style="width: 250px;">Degree Document</th>
+                    <th style="width: 250px;">Board Name</th>
+                    <th style="width: 250px;">Document Review</th>
+                    <th style="width: 250px;">Created At</th>
+                    <th style="width: 250px;">Updated At</th>
+                    <th style="width: 250px;">Action</th>
                 </tr>
             </thead>
 
-    <tbody>
+    <tbody> 
     @forelse ($iqforms as $iqform)
         <tr>
-            <td>{{ ++$i }}</td>
+            
+            <td>{{ $iqform->id }}</td>
             <td>{{ $iqform->select_campus }}</td>
             <td>{{ $iqform->admission_applying_for }}</td>
             <td>{{ $iqform->program_applying_for }}</td>
@@ -132,7 +140,7 @@
             <td>{{ $iqform->current_address }}</td>
             <td>{{ $iqform->current_area }}</td>
             <td>{{ $iqform->current_zip }}</td>
-            <td>{{ $iqform->is_ame_address ? 'Yes' : 'No' }}</td>
+            <td>{{ $iqform->is_same_address ? 'Yes' : 'No' }}</td>
             <td>{{ $iqform->permeneant_country }}</td>
             <td>{{ $iqform->permeneant_city }}</td>
             <td>{{ $iqform->permeneant_address }}</td>

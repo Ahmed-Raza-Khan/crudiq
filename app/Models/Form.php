@@ -55,7 +55,7 @@ class Form extends Model
     'current_address',
     'current_area',
     'current_zip',
-    'is_ame_address',
+    'is_same_address',
     'permeneant_country',
     'permeneant_city',
     'permeneant_address',
